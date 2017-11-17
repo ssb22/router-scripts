@@ -1,0 +1,2 @@
+#!/bin/bash
+if lynx -source -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/RgDmzHost.asp|grep cbWanBlocking.*CHECKED >/dev/null; then echo on; else echo off; fi

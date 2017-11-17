@@ -1,0 +1,5 @@
+#!/bin/bash
+if test "a$1" == a; then lynx -source -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/Rg802dot11BasicCfg.asp|grep NetgearChannelNumber|sed -e 's/.*selected>//' -e 's/ *<.*//'
+else echo NetgearChannelNumber=$(if test "$(echo "$1"|tr A-Z a-z)" == auto; then echo 0; else echo "$1"; fi) | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/Rg802dot11BasicCfg >/dev/null
+if test $(netgear-wifi-status) == on; then netgear-wifi-off ; netgear-wifi-on; fi # seems this is needed to effect the channel change
+fi

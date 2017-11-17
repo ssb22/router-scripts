@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "PortBlockingAction=1&PortBlockingSelectActiveIndex=-1&PortBlockingCustomName=$1&PortBlockingCustomStartPort=1&PortBlockingCustomEndPort=65535&PortBlockingCustomProtocol=254&PortBlockingCustomLocalIP3=$1" | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/RgPortFiltering >/dev/null

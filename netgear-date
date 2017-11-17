@@ -1,0 +1,2 @@
+#!/bin/bash
+COLUMNS=80 lynx -dump -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/RgDhcp.asp|grep "System Time"|sed -e 's/[^:]*: //'

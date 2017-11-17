@@ -1,0 +1,2 @@
+#!/bin/bash
+if lynx -source -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/Rg802dot11AdvanceCfg.asp|grep checkbox|head -1|grep -i checked >/dev/null; then echo on; else echo off; fi

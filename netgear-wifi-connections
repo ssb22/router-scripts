@@ -1,0 +1,2 @@
+#!/bin/bash
+COLUMNS=80 lynx -dump -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/Rg802dot11AccessFilterGN.asp|grep 192.168|sed -e 's/.*192.168/192.168/'

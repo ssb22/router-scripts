@@ -1,0 +1,6 @@
+#!/bin/bash
+if test "a$2" == a; then echo "Syntax: netgear-add-port portNum ipNum"; exit 1; fi
+netgear-delete-port "$1"
+export Name=$(grep "^[^#]* $1/" /etc/services|sed -e 's/ .*//'|head -1)
+if test "a$Name" == a; then export Name="$1"; fi
+echo "PortForwardingAction=1&PortForwardingCustomLocalIP3=$2&PortForwardingCustomProtocol=254&PortForwardingCustomStartPort=$1&PortForwardingCustomEndPort=$1&PortForwardingCustomName=$Name" | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/RgForwarding >/dev/null

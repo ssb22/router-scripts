@@ -1,0 +1,5 @@
+#!/bin/bash
+export RuleNum=$(lynx -source -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/RgForwarding.asp|grep "PortForwardPortGlobalStart.*value=\"$1\""|sed -e 's/.*PortForwardPortGlobalStart//' -e 's/".*//')
+if ! test "a$RuleNum" == a; then
+echo "PortForwardingAction=2&PortForwardingSelectActiveIndex=$RuleNum" | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/RgForwarding >/dev/null
+fi

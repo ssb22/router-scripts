@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "NetgearEnableWireless=1&NetgearClosedNetwork=1&NetgearRTSThreshold=2347&NetgearPreambleLength=1&NetgearDisableDevicePIN=1&NetgearkeepExistingSettings=1&NetgearChangeCacheAdv=1" | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/Rg802dot11AdvanceCfg >/dev/null

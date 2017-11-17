@@ -1,0 +1,2 @@
+#!/bin/bash
+COLUMNS=80 lynx -dump -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/RgSetup.asp|grep "Default Gateway"|grep -v '192\.168\.'|tail -1|sed -e 's/.* //'

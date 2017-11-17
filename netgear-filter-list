@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(COLUMNS=80 lynx -source -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/RgContentFilter.asp|grep 'NetgearDomainList.*option value'|sed -e 's/<[^>]*>/ /g')|tr ' ' $'\n'|grep \\.

@@ -1,0 +1,2 @@
+#!/bin/bash
+lynx -source -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/Rg802dot11AccessFilterGN.asp|grep onclick=selectActiveFilter|sed -e 's/<[^>]*>/ /g' -e 's/  */ /g' -e 's/^ *//'

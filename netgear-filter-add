@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "NetgearDomainBlocking=0x2&NetgearNewDomain=$1&NetgearContentFilterAction=3" | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/RgContentFilter >/dev/null

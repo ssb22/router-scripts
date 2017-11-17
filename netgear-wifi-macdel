@@ -1,0 +1,3 @@
+#!/bin/bash
+for N in $(netgear-wifi-maclist|grep "$1"|sed -e 's/ .*//'|sort -rn); do echo "AccessFilterSelectActiveIndexGN=$N&AccessFilterActionGN=3" | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/Rg802dot11AccessFilterGN >/dev/null ; done # Delete
+echo "AccessFilterActionGN=2" | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/Rg802dot11AccessFilterGN >/dev/null # Apply

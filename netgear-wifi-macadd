@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "$1"|sed -e 's/\(..\):\(..\):\(..\):\(..\):\(..\):\(..\)/AccessFilterMac1GN=\1\&AccessFilterMac2GN=\2\&AccessFilterMac3GN=\3\&AccessFilterMac4GN=\4\&AccessFilterMac5GN=\5\&AccessFilterMac6GN=\6\&AccessFilterActionGN=1/' | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/Rg802dot11AccessFilterGN >/dev/null # Add
+echo "AccessFilterActionGN=2" | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/Rg802dot11AccessFilterGN >/dev/null # Apply

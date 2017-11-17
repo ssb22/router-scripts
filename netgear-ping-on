@@ -1,0 +1,2 @@
+#!/bin/bash
+echo cbWanBlocking=1 | lynx -source -post-data -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/goform/RgDmzHost >/dev/null

@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(COLUMNS=80 lynx -force_html -nonumbers -dump <(lynx -source -auth=admin:"$(cat /etc/netgear-password)" http://192.168.0.1/RgForwarding.asp|sed -e 's/<input[^>]*value="\([^"]*\)"[^>]*>/\1/g')|awk 'BEGIN{p=0} /__/{p=0} /\([_ *]\)/{p=1} //{if(p) print}')|tr -d '_*)'|tr '(' $'\n'|sed -e 's/^ *//' -e 's/192.168.0. //'|grep .|sort -f
