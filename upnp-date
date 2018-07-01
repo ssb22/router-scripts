@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 import miniupnpc
 u = miniupnpc.UPnP()
-u.discoverdelay=200;u.discover();u.selectigd()
-
+u.discoverdelay=200;u.discover()
+u=u.selectigd()
+u=u[:u.index(':5431/')]
 import urllib2
-date = urllib2.urlopen("http://"+u.externalipaddress()).headers["Date"]
+date = urllib2.urlopen(u).headers["Date"]
 if date.endswith("GMT"): date=date[:-3].rstrip() # some routers have local time but incorrectly call it GMT
 print date.replace(", "," ")
