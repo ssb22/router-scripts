@@ -7,4 +7,4 @@ secs = u.statusinfo()[1]
 mins,secs = int(secs/60),secs%60
 hrs,mins = int(mins/60),mins%60
 days,hrs = int(hrs/24),hrs%24
-print "%d days %d:%d:%d" % (days,hrs,mins,secs)
+print("%d days %d:%d:%d" % (days,hrs,mins,secs))

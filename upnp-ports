@@ -8,4 +8,4 @@ while p:
   p = u.getgenericportmapping(i) ; i+=1
   if p:
     port,protocol,(toAddr,toPort),desc,x,y,z = p
-    print protocol+":"+str(port),"->",toAddr+":"+str(toPort)+"\t"+desc
+    print(protocol+":"+str(port)+" -> "+toAddr+":"+str(toPort)+"\t"+desc)
